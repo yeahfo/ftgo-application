@@ -1,0 +1,17 @@
+#!/bin/sh
+PROJECT=$(./mvnw help:evaluate -Dexpression=project.artifactId -q -DforceStdout)
+PROJECT_VERSION=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout)
+RELEASE=io/github/yeahfo/ftgo/$PROJECT/$PROJECT_VERSION
+LOCAL_MAVEN_REPO=$HOME/Documents/IdeaProjects/maven
+GIT_COMMIT_MSG="${PROJECT_VERSION} release."
+read -p "Please enter the release information, currently($GIT_COMMIT_MSG): " InputMessage
+if [ ! -n "$InputMessage" ]; then
+    echo "Nothing is entered, the default information is used: \"$GIT_COMMIT_MSG\""
+else
+  GIT_COMMIT_MSG=$InputMessage
+fi
+
+#git add . && git commit -m "$GIT_COMMIT_MSG" && git push origin main
+
+./mvnw clean deploy -DaltDeploymentRepository=github::file://$LOCAL_MAVEN_REPO
+cd $LOCAL_MAVEN_REPO && git add . && git commit -m "$GIT_COMMIT_MSG" && git push origin main

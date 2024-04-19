@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm
+                 https://jakarta.ee/xml/ns/persistence/orm/orm.xsd"
+                 version="3.1">
+    <package>io.github.yeahfo.ftgo.customers.domain</package>
+    <schema>ftgo</schema>
+    <entity class="Customer" access="FIELD">
+        <table name="customer"/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <embedded name="name">
+                <attribute-override name="firstName">
+                    <column name="first_name"/>
+                </attribute-override>
+                <attribute-override name="lastName">
+                    <column name="last_name"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.github.yeahfo.ftgo</groupId>
+    <artifactId>ftgo-customer-service</artifactId>
+    <version>0.0.1</version>
+    <name>ftgo-customer-service</name>
+    <description>ftgo-customer-service</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>ftgo-customer-service-app</module>
+        <module>ftgo-customer-service-common</module>
+    </modules>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>Alibaba</id>
+            <name>Alibaba maven proxy repository</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

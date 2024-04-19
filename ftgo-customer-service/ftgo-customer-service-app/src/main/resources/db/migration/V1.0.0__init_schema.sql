@@ -1,0 +1,7 @@
+CREATE SCHEMA IF NOT EXISTS ftgo;
+CREATE TABLE IF NOT EXISTS ftgo.customer
+(
+    id         BIGSERIAL PRIMARY KEY,
+    first_name VARCHAR NOT NULL,
+    last_name  VARCHAR NOT NULL
+);
